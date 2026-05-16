@@ -44,14 +44,21 @@ keytool -genkey -v -keystore "$BUILD/debug.keystore" \
     -dname "CN=Debug, OU=Debug, O=Debug, L=Debug, S=Debug, C=US" \
     -storepass android -keypass android -noprompt 2>/dev/null
 
-echo "==> Signing APK..."
+echo "==> Zipaligning APK..."
+$ZIPALIGN -f 4 "$DIST/clarinet-unsigned.apk" "$DIST/clarinet-aligned.apk"
+
+echo "==> Signing APK (v1+v2+v3)..."
 $APKSIGNER sign \
     --ks "$BUILD/debug.keystore" \
     --ks-pass pass:android \
     --key-pass pass:android \
     --ks-key-alias debug \
+    --v1-signing-enabled true \
+    --v2-signing-enabled true \
+    --v3-signing-enabled true \
+    --min-sdk-version 21 \
     --out "$DIST/Klarnet.apk" \
-    "$DIST/clarinet-unsigned.apk"
+    "$DIST/clarinet-aligned.apk"
 
 echo ""
 echo "====================================="
