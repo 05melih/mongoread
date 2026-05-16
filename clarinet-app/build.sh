@@ -36,7 +36,7 @@ $DX --dex --output="$BUILD/classes.dex" "$OBJ"
 echo "==> Packaging APK..."
 $AAPT package -f -M "$MANIFEST" -S "$RES" -I "$ANDROID_JAR" \
     -F "$DIST/clarinet-unsigned.apk"
-cd "$BUILD" && zip -j "$OLDPWD/$DIST/clarinet-unsigned.apk" classes.dex && cd "$OLDPWD"
+cd "$BUILD" && zip -0 -j "$OLDPWD/$DIST/clarinet-unsigned.apk" classes.dex && cd "$OLDPWD"
 
 echo "==> Generating keystore..."
 keytool -genkey -v -keystore "$BUILD/debug.keystore" \
