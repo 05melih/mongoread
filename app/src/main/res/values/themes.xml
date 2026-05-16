@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.KlarnetApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#1A1A2E</item>
+        <item name="colorPrimaryVariant">#16213E</item>
+        <item name="colorOnPrimary">#E8D5B7</item>
+        <item name="colorSecondary">#4A90D9</item>
+        <item name="android:windowBackground">#1A1A2E</item>
+        <item name="android:statusBarColor">#1A1A2E</item>
+    </style>
+</resources>
