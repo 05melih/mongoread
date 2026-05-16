@@ -1,0 +1,7 @@
+build/classes.dex
+build/debug.keystore
+build/dist/clarinet-unsigned.apk
+build/dist/*.idsig
+build/gen/
+build/obj/
+build/sources.txt
